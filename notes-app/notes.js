@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require("chalk");
 
 
 const addNote = function(title, body){
@@ -51,13 +52,14 @@ const loadNotes = function() {
 //delete note
 const deleteNote = function(title){
     const notes = loadNotes();
-    const filterNotes = notes.filter((title) =>{ title === notes});
-    console.log(title);
+    const filterNotes = notes.filter((list) =>{ 
+         return list.title !== title;
+    });
+    
+console.log(filterNotes)
     if(filterNotes.length > 0){
-        console.log(filterNotes);
-        return true;
-    } else{
-        return false;
+        console.log(chalk.green("That title was sucessfully deleted"));
+        saveNotes(filterNotes);
     }
 }
 
