@@ -19,11 +19,12 @@ yargs.command('remove', 'Remove a note',
     (argv) =>{notes.deleteNote(argv.title)});
 
 yargs.command('list', 'List all notes.', 
-    ()=> {console.log('Notes Listed')})
+{},
+(argv) => {notes.listNotes()});
 
 yargs.command('read', 'Read a note', 
     {title: {describe: 'Note Title', demandOption: true, type: 'string'}}, 
-    () =>{console.log('Note Read')});
+    (argv) =>{ notes.readNote(argv.title)});
 
 yargs.parse();
 
