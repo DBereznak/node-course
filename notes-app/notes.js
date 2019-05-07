@@ -1,7 +1,7 @@
 const fs = require('fs');
 const chalk = require("chalk");
 
-
+//add note
 const addNote = (title, body) => {
     const notes = loadNotes();
     const duplicateNote = notes.find((note) => note.title === title);
@@ -42,7 +42,7 @@ ${chalk.whiteBright('Title:')} ${chalk.blueBright(note.title)}`)
 //read Notes
 const readNote = (title) => {
     const notes = loadNotes();
-    let note = notes.find((note) => note.title === title);
+    let note = notes.find((note) => note.title === title).trim();
     if (note) {
         console.log(`
                 ${chalk.whiteBright('Title:')} ${chalk.blueBright(note.title)} 
