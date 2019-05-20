@@ -8,16 +8,16 @@ const mapBoxApiKey =
 const geocode = (location, callback) => {
     const mapBoxUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${mapBoxApiKey}&limit=1`;
   
-    request({ url: mapBoxUrl, json: true }, (error, response) => {
+    request({ url: mapBoxUrl, json: true }, (error, {body}) => {
       if (error) {
         callback("Could not connect to Dark Sky's Server");
-      } else if (response.body.features.length === 0) {
+      } else if (body.features.length === 0) {
         callback("Unable to find location");
       } else {
          callback(undefined, {
-             latitude: response.body.features[0].center[0],
-             longitude: response.body.features[0].center[1],
-             name: response.body.features[0].place_name
+             latitude: body.features[0].center[0],
+             longitude: body.features[0].center[1],
+             name: body.features[0].place_name
          });
       }
     });
