@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+nav{
+    padding: 10px 20px;
+    background: #000040;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 10px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Footer */
+
+footer{
+    padding: 5px;
+    background: #000040;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p{
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center; 
+}
+
+h1{
+    color: #000040;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
