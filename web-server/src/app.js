@@ -40,10 +40,28 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
+    if(!req.query.address){
+        return res.send({
+            error: "You must provide a address"
+        })
+    }
+    let city = req.query.address
     res.send([{
-        city: 'Atlanta',
+        city: city,
         temperature: 82
     }]);
+})
+
+app.get('/products', (req, res) => {
+    if(!req.query.search){
+        return res.send({
+            error: "You must provide a search term"
+        })
+    }
+    console.log(req.query);
+    res.send({
+        products: []
+    })
 })
 app.get('/help/*', (req, res) => {
     res.render('404', {
