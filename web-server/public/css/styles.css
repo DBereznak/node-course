@@ -21,6 +21,20 @@ nav ul li a{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+
+/*weather*/
+
+ul.weather_output{
+    list-style: none;
+}
+
+ul.weather_output li{
+    color: #000040;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px; 
+    padding-bottom: 5px;
+}
+
 /* Footer */
 
 footer{

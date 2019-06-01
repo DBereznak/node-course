@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
+const geocode = require('./utils/geocode');
+const forcast = require('./utils/forcast');
+
 
 const app = express();
 
@@ -45,11 +48,25 @@ app.get('/weather', (req, res) => {
             error: "You must provide a address"
         })
     }
-    let city = req.query.address
-    res.send([{
-        city: city,
-        temperature: 82
-    }]);
+    let city = req.query.address;
+    geocode(city, (error,{latitude, longitude, name} = {}) => {
+        if (error) {
+          return res.send({ error: "Could not find any location with that name."});
+        }
+      
+          forcast(latitude, longitude, (error, forcastData) => {
+              if (error) {
+                return res.send({ error: "Could not connect to Dark Sky's Server"});
+                }
+                res.send({
+                    title: 'Local Weather',
+                    city: city,
+                    temperature: forcastData.temperature,
+                    summary: forcastData.dailySummary,
+                });
+           
+          });
+      });
 })
 
 app.get('/products', (req, res) => {
